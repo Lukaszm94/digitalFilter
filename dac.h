@@ -32,9 +32,7 @@ public:
 			PORTB |= (1<<DEBUG_PIN_2);
 			TWDR = secondByte;
 			TWIClearInterruptFlag();
-			//setTWIInterruptEnabled(false);
 			DACstate = SENT_SECOND_HALF;
-			//DACstate = IDLE;
 		} else if(DACstate == SENT_SECOND_HALF) {
 			PORTB &=~(1<<DEBUG_PIN_2);
 			setTWIInterruptEnabled(false);
